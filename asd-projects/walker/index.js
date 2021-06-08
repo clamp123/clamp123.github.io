@@ -94,8 +94,8 @@ console.log("LEFT pressed");
   positionY += speedY;
   }
   function redrawbox() {
-  $("#box").css("LEFT", positionX);
-  $("#box").css("TOP", positionY);
+  $("#box").css("left", positionX);
+  $("#box").css("top", positionY);
   }
   function endGame() {
     // stop the interval timer
