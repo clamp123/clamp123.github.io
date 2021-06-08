@@ -72,11 +72,11 @@ console.log("LEFT pressed");
   }
   }
   function handleKeyUp(event) {
-    if (event.which === KEY) {
+   
       if (event.which === KEY.LEFT) {
         speedX = 0;
       }
-      if (event.which === KEY.RIGHt) {
+      if (event.which === KEY.RIGHT) {
         speedX = 0;
       }
       if (event.which === KEY.UP) {
@@ -95,7 +95,7 @@ console.log("LEFT pressed");
   }
   function redrawbox() {
   $("#box").css("LEFT", positionX);
-  $("#box").css("UP", positionY);
+  $("#box").css("TOP", positionY);
   }
   function endGame() {
     // stop the interval timer
