@@ -11,11 +11,49 @@ body {
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+#theball {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+   left: 210px; 
+   top: 210px;  
+   
+}
+#theleftpaddle {
+  background-color: goldenrod;
+  width: 20px;
+  height: 80px;
+  border-radius: 0px;
+  position: absolute;
+   left: 0px; 
+   top: 210px;  
+}
+#therightpaddle {
+  background-color: blue;
+  width: 20px;
+  height: 80px;
+  border-radius: 0px;
+  position: absolute;
+   left: 420px; 
+   top: 210px;  
+}
+#thescoreforplayer1 {
+  background-color: gainsboro;
+  width: 80px;
+  height: 80px;
+  border-radius: 0px;
+  position: absolute;
+   left: 140px; 
+   top: 0px;  
+}
+#thescoreforplayer2 {
+  background-color: gainsboro;
+  width: 80px;
+  height: 80px;
+  border-radius: 0px;
+  position: absolute;
+   left: 240px; 
+   top: 0px;  
 }
