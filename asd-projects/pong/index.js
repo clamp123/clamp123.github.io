@@ -63,6 +63,16 @@ therightpaddle.id = "#therightpaddle";
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp);
+  $(document).on('theball', theball);
+  $(document).on('theleftpaddle', theleftpaddle);
+  $(document).on('therightpaddle', therightpaddle);
+  $(document).on('repositiontheball', repositiontheball);
+  $(document).on('redrawtheball', redrawtheball);
+  $(document).on('repositiontheleftpaddle', repositiontheleftpaddle);
+  $(document).on('redrawtheleftpaddle', redrawtheleftpaddle);
+  $(document).on('repositiontherightpaddle', repositiontherightpaddle);
+  $(document).on('redrawtherightpaddle', redrawtherightpaddle);
+  $(document).on('doCollide', doCollide);
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
