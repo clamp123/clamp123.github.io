@@ -1,4 +1,5 @@
 /* global $, sessionStorage */
+// below factory function //
 function pongstuff($id) {
   var pong = {};
   pong.id = $id;
@@ -11,7 +12,7 @@ pong.y = parseFloat($($id).css('top'));
   pong.speedY = (0);
 return pong;
 } 
-
+// above factory function //
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
   
 function runProgram(){
@@ -29,41 +30,56 @@ function runProgram(){
     "DOWN": 40,
   }
   // Game Item Objects
+  // mobility
   var positionX = 0;
   var positionY = 0;
-  var speedX = 1;
-  var speedY = 1;
+  var speedX = Math.random;
+  var speedY = 0;
+  
   function theball($id) { 
-    $(theball.id).css("left", theball.x);
-    
-    var theball = {};
-    theball.x = 0;
-    theball.y = 100;
-    theball.speedX = 1;
-    theball.speedY = 1;
-    theball.id = "#theball";
-    return theball;
+    return ball();
+
+    function ball() {
+      $(theball.id).css("left", theball.x);
+
+      var theball = {};
+      theball.x = 0;
+      theball.y = 100;
+      theball.speedX = 1;
+      theball.speedY = 1;
+      theball.id = "#theball";
+      return theball;
+    }
   }
   function theleftpaddle($id) { 
-    $(theleftpaddle.id).css("top", theleftpaddle.y);
-    var theleftpaddle = {};
-    theleftpaddle.x = 0;
-    theleftpaddle.y = 100;
-    theleftpaddle.speedX = 1;
-    theleftpaddle.speedY = 1;
-    theleftpaddle.id = "#theleftpaddle";
-    return theleftpaddle;
+    return leftpaddle();
+
+    function leftpaddle() {
+      $(theleftpaddle.id).css("top", theleftpaddle.y);
+      var theleftpaddle = {};
+      theleftpaddle.x = 0;
+      theleftpaddle.y = 100;
+      theleftpaddle.speedX = 1;
+      theleftpaddle.speedY = 1;
+      theleftpaddle.id = "#theleftpaddle";
+
+      return theleftpaddle;
+    }
   }
   function therightpaddle($id) {
-    $(therightpaddle.id).css("top", therightpaddle.y);
-    var therightpaddle = {};
-    therightpaddle.x = 0;
-    therightpaddle.y = 100;
-    therightpaddle.speedX = 1;
-    therightpaddle.speedY = 1;
-    therightpaddle.id = "#therightpaddle";
-    return therightpaddle;
-  }
+    return rightpaddle();
+
+    function rightpaddle() {
+      $(therightpaddle.id).css("top", therightpaddle.y);
+      var therightpaddle = {};
+      therightpaddle.x = 0;
+      therightpaddle.y = 100;
+      therightpaddle.speedX = 1;
+      therightpaddle.speedY = 1;
+      therightpaddle.id = "#therightpaddle";
+      return therightpaddle;
+    }
+  };
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -86,6 +102,7 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+ // helping with animation
   function newFrame() {
     
     redrawtheball();
@@ -111,6 +128,7 @@ function runProgram(){
   /* 
   Called in response to events.
   */
+ // actual key movements
   function handleKeyDown(event) {
     if (event.which === KEY.DOWN) {
       console.log("DOWN pressed")
@@ -119,10 +137,10 @@ function runProgram(){
       console.log("UP pressed")
     }
     if (event.which === KEY.DOWN) {
-      speedY = -5;
+      speedY = 5;
     }
     if (event.which === KEY.UP) {
-      speedY = 5;
+      speedY = -5;
     }
     if (event.which === KEY.S) {
       console.log("S pressed")
@@ -131,10 +149,11 @@ function runProgram(){
       console.log("W pressed")
     }
     if (event.which === KEY.S) {
-      speedY = -5;
+      speedY = 5;
     }
     if (event.which === KEY.W) {
-      speedY = 5;
+      speedY = -5;
+      
     }
   }
   function handleKeyUp(event) {
@@ -156,6 +175,7 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+ // collision and stuff
   function repositiontheball(){
     positionX += speedX;
     positionY += speedY;
