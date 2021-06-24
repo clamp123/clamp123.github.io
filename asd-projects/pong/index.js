@@ -19,8 +19,9 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+debugger
   // Constant Variables
+  
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   var KEY = {
@@ -36,25 +37,25 @@ function runProgram(){
   var speedX = Math.random;
   var speedY = 0;
   
-  function theball($id) { 
-    return ball();
+  function theball(theball) { 
+    return theball();
 
-    function ball() {
+    function theball() {
       $(theball.id).css("left", theball.x);
 
       var theball = {};
       theball.x = 0;
       theball.y = 100;
-      theball.speedX = 1;
-      theball.speedY = 1;
+      theball.speedX = 4;
+      theball.speedY = 5;
       theball.id = "#theball";
       return theball;
     }
   }
-  function theleftpaddle($id) { 
-    return leftpaddle();
+  function theleftpaddle(theleftpaddle) { 
+    return theleftpaddle();
 
-    function leftpaddle() {
+    function theleftpaddle() {
       $(theleftpaddle.id).css("top", theleftpaddle.y);
       var theleftpaddle = {};
       theleftpaddle.x = 0;
@@ -66,10 +67,10 @@ function runProgram(){
       return theleftpaddle;
     }
   }
-  function therightpaddle($id) {
-    return rightpaddle();
+  function therightpaddle(therightpaddle) {
+    return therightpaddle();
 
-    function rightpaddle() {
+    function therightpaddle() {
       $(therightpaddle.id).css("top", therightpaddle.y);
       var therightpaddle = {};
       therightpaddle.x = 0;
@@ -84,16 +85,7 @@ function runProgram(){
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp);
-  $(document).on('theball', theball);
-  $(document).on('theleftpaddle', theleftpaddle);
-  $(document).on('therightpaddle', therightpaddle);
-  $(document).on('repositiontheball', repositiontheball);
-  $(document).on('redrawtheball', redrawtheball);
-  $(document).on('repositiontheleftpaddle', repositiontheleftpaddle);
-  $(document).on('redrawtheleftpaddle', redrawtheleftpaddle);
-  $(document).on('repositiontherightpaddle', repositiontherightpaddle);
-  $(document).on('redrawtherightpaddle', redrawtherightpaddle);
-  $(document).on('doCollide', doCollide);
+  
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -117,10 +109,12 @@ function runProgram(){
     positionX += speedX;                 
     $("#theball").css("left", positionX);    
   }
+
   function theleftpaddle() {
     positionY += speedY;                 
     $("#theleftpaddle").css("top", positionY);    
   }
+
   function therightpaddle() {
     positionY += speedY;                 
     $("#therightpaddle").css("top", positionY);    
@@ -207,18 +201,18 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  function doCollide(square1, square2) {
+  function doCollide(paddle, ball) {
     
     square1.leftX = square1.x;
     square1.topY = square1.y;
-    square1.rightX = square1.x + 50;
-    square1.bottomY = square1.y + 50;
+    square1.rightX = square1.x;
+    square1.bottomY = square1.y;
   
     
     square2.leftX = square2.x;
     square2.topY = square2.y;
-    square2.rightX = square2.x + 50;
-    square2.bottomY = square2.y + 50;
+    square2.rightX = square2.x;
+    square2.bottomY = square2.y;
     
     if (square1.rightX > square2.leftX &&  square1.leftX < square2.rightX && square1.bottomY > square2.topY && square1.topY < square2.bottomY) {
         return true;
