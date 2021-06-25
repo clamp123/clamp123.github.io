@@ -32,51 +32,10 @@ debugger
   }
   // Game Item Objects
   // mobility
+  var theball = pongstuff("#theball");
+  var theleftpaddle = pongstuff("#theleftpaddle");
+  var therightpaddle = pongstuff("#therightpaddle");
   
-  function theball(theball) { 
-    return theball();
-
-    function theball() {
-      $(theball.id).css("left", theball.x);
-
-      var theball = {};
-      theball.x = 0;
-      theball.y = 100;
-      theball.speedX = 4;
-      theball.speedY = 5;
-      theball.id = "#theball";
-      return theball;
-    }
-  }
-  function theleftpaddle(theleftpaddle) { 
-    return theleftpaddle();
-
-    function theleftpaddle() {
-      $(theleftpaddle.id).css("top", theleftpaddle.y);
-      var theleftpaddle = {};
-      theleftpaddle.x = 0;
-      theleftpaddle.y = 100;
-      theleftpaddle.speedX = 1;
-      theleftpaddle.speedY = 1;
-      theleftpaddle.id = "#theleftpaddle";
-
-      return theleftpaddle;
-    }
-  }
-  function therightpaddle(therightpaddle) {
-    return therightpaddle();
-
-    function therightpaddle() {
-      $(therightpaddle.id).css("top", therightpaddle.y);
-      var therightpaddle = {};
-      therightpaddle.x = 0;
-      therightpaddle.y = 100;
-      therightpaddle.speedX = 1;
-      therightpaddle.speedY = 1;
-      therightpaddle.id = "#therightpaddle";
-      return therightpaddle;
-    }
-  };
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
