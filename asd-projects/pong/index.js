@@ -32,10 +32,6 @@ debugger
   }
   // Game Item Objects
   // mobility
-  var positionX = 0;
-  var positionY = 0;
-  var speedX = Math.random;
-  var speedY = 0;
   
   function theball(theball) { 
     return theball();
@@ -201,24 +197,50 @@ debugger
     // turn off event handlers
     $(document).off();
   }
-  function doCollide(paddle, ball) {
+  function doCollide(theleftpaddle, theball, therightpaddle) {
     
-    square1.leftX = square1.x;
-    square1.topY = square1.y;
-    square1.rightX = square1.x;
-    square1.bottomY = square1.y;
+    theleftpaddle.leftX = theleftpaddle.x;
+    theleftpaddle.topY = theleftpaddle.y;
+    theleftpaddle.rightX = theleftpaddle.x;
+    theleftpaddle.bottomY = theleftpaddle.y;
   
     
-    square2.leftX = square2.x;
-    square2.topY = square2.y;
-    square2.rightX = square2.x;
-    square2.bottomY = square2.y;
+    theball.leftX = theball.x;
+    theball.topY = theball.y;
+    theball.rightX = theball.x;
+    theball.bottomY = theball.y;
+
+    therightpaddle.leftX = therightpaddle.x;
+    therightpaddle.topY = therightpaddle.y;
+    therightpaddle.rightX = therightpaddle.x;
+    therightpaddle.bottomY = therightpaddle.y;
     
-    if (square1.rightX > square2.leftX &&  square1.leftX < square2.rightX && square1.bottomY > square2.topY && square1.topY < square2.bottomY) {
-        return true;
+    if (theleftpaddle.rightX > theball.leftX &&  theleftpaddle.leftX < theball.rightX && theleftpaddle.bottomY > theball.topY && theleftpaddle.topY < theball.bottomY) {
+        theball.speedX = theball.speedX++;
+        theball.speedY = theball.speedY++;
+        theball.speedX++;
+        theball.speedY++;
+      return true;
       } else {
     return false;
     }
-	
+  }
+     if (theball.rightX > therightpaddle.leftX &&  theball.leftX < therightpaddle.rightX && theball.bottomY > therightpaddle.topY && theball.topY < therightpaddle.bottomY) {
+      return true;
+    } else {
+  return false;
+  } 
+ 
+  if (theball.y < -10) {
+  theball.speedY = theball.speedY + 1;
+  }
+  if (theball.y > board_hight) {
+    theball.speedY = theball.speedY - 1;
+  }
+  if (theball.x < -10) {
+    theball.speedX = theball.speedX + 1;
+    }
+  if (theball.x > board_width) {
+    theball.speedX = theball.speedX - 1;
   }
 }
