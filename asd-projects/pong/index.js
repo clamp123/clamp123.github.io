@@ -113,28 +113,28 @@ debugger
   ////////////////////////////////////////////////////////////////////////////////
  // collision and stuff
   function repositiontheball(){
-    positionX += speedX;
-    positionY += speedY;
+    theball.x += theball.speedX;
+    theball.y += theball.speedY;
   }
   function redrawtheball() {
-    $("#theball").css("left", positionX);
-    $("#theball").css("top", positionY);
+    $("#theball").css("left", theball.x);
+    $("#theball").css("top", theball.y);
   }
   function repositiontheleftpaddle(){
-    positionX += speedX;
-    positionY += speedY;
+    theleftpaddle.x += theleftpaddle.speedX;
+    theleftpaddle.y += theleftpaddle.speedY;
   }
   function redrawtheleftpaddle() {
-    $("#theleftpaddle").css("left", positionX);
-    $("#theleftpaddle").css("top", positionY);
+    $("#theleftpaddle").css("left", theleftpaddle.x);
+    $("#theleftpaddle").css("top", theleftpaddle.y);
   }
   function repositiontherightpaddle(){
-    positionX += speedX;
-    positionY += speedY;
+    therightpaddle.x += therightpaddle.speedX;
+    therightpaddle.y += therightpaddle.speedY;
   }
   function redrawtherightpaddle() {
-    $("#therightpaddle").css("left", positionX);
-    $("#therightpaddle").css("top", positionY);
+    $("#therightpaddle").css("left", therightpaddle.x);
+    $("#therightpaddle").css("top", therightpaddle.y);
   }
   function endGame() {
     // stop the interval timer
@@ -170,7 +170,7 @@ debugger
       } else {
     return false;
     }
-  }
+  
      if (theball.rightX > therightpaddle.leftX &&  theball.leftX < therightpaddle.rightX && theball.bottomY > therightpaddle.topY && theball.topY < therightpaddle.bottomY) {
       return true;
     } else {
