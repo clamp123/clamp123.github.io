@@ -170,7 +170,7 @@ debugger
       } else {
     return false;
     }
-  
+  }
      if (theball.rightX > therightpaddle.leftX &&  theball.leftX < therightpaddle.rightX && theball.bottomY > therightpaddle.topY && theball.topY < therightpaddle.bottomY) {
       return true;
     } else {
@@ -189,4 +189,5 @@ debugger
   if (theball.x > board_width) {
     theball.speedX = theball.speedX - 1;
   }
+}
 }
