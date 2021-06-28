@@ -60,20 +60,7 @@ debugger
 
   }
   
-  function theball() {
-    positionX += speedX;                 
-    $("#theball").css("left", positionX);    
-  }
-
-  function theleftpaddle() {
-    positionY += speedY;                 
-    $("#theleftpaddle").css("top", positionY);    
-  }
-
-  function therightpaddle() {
-    positionY += speedY;                 
-    $("#therightpaddle").css("top", positionY);    
-  }
+  
   /* 
   Called in response to events.
   */
@@ -86,10 +73,10 @@ debugger
       console.log("UP pressed")
     }
     if (event.which === KEY.DOWN) {
-      speedY = 5;
+      therightpaddle.speedY = 5;
     }
     if (event.which === KEY.UP) {
-      speedY = -5;
+      therightpaddle.speedY = -5;
     }
     if (event.which === KEY.S) {
       console.log("S pressed")
@@ -98,26 +85,26 @@ debugger
       console.log("W pressed")
     }
     if (event.which === KEY.S) {
-      speedY = 5;
+      theleftpaddle.speedY = 5;
     }
     if (event.which === KEY.W) {
-      speedY = -5;
+      theleftpaddle.speedY = -5;
       
     }
   }
   function handleKeyUp(event) {
    
     if (event.which === KEY.UP) {
-      speedY = 0;
+      therightpaddle.speedY = 0;
     }
     if (event.which === KEY.DOWN) {
-      speedY = 0;
+      therightpaddle.speedY = 0;
     }
     if (event.which === KEY.W) {
-      speedY = 0;
+      theleftpaddle.speedY = 0;
     }
     if (event.which === KEY.S) {
-      speedY = 0;
+      theleftpaddle.speedY = 0;
     }
   }
 
