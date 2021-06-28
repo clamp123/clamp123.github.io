@@ -51,7 +51,7 @@ debugger
   */
  // helping with animation
   function newFrame() {
-    
+    repositiontheball();
     redrawtheball();
     repositiontheleftpaddle();
     redrawtheleftpaddle();
