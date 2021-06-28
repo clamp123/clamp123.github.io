@@ -33,6 +33,8 @@ debugger
   // Game Item Objects
   // mobility
   var theball = pongstuff("#theball");
+  theball.speedX = 3;
+  theball.speedY = (Math.random() * 6);
   var theleftpaddle = pongstuff("#theleftpaddle");
   var therightpaddle = pongstuff("#therightpaddle");
   
@@ -57,10 +59,11 @@ debugger
     redrawtheleftpaddle();
     repositiontherightpaddle();
     redrawtherightpaddle();
+    doCollide(theleftpaddle, theball, therightpaddle);
 
   }
   
-  
+  doCollide(theleftpaddle, theball, therightpaddle);
   /* 
   Called in response to events.
   */
@@ -161,16 +164,16 @@ debugger
     therightpaddle.rightX = therightpaddle.x;
     therightpaddle.bottomY = therightpaddle.y;
     
-    if (theleftpaddle.rightX > theball.leftX &&  theleftpaddle.leftX < theball.rightX && theleftpaddle.bottomY > theball.topY && theleftpaddle.topY < theball.bottomY) {
-        theball.speedX = theball.speedX++;
-        theball.speedY = theball.speedY++;
-        theball.speedX++;
-        theball.speedY++;
+    if ((theleftpaddle.rightX > theball.leftX) &&  
+      (theleftpaddle.leftX < theball.rightX) &&
+       (theleftpaddle.bottomY > theball.topY) &&
+        (theleftpaddle.topY < theball.bottomY)) {
+        
       return true;
       } else {
     return false;
     }
-  }
+  
      if (theball.rightX > therightpaddle.leftX &&  theball.leftX < therightpaddle.rightX && theball.bottomY > therightpaddle.topY && theball.topY < therightpaddle.bottomY) {
       return true;
     } else {
