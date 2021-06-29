@@ -25,18 +25,18 @@ body {
   background-color: goldenrod;
   width: 20px;
   height: 80px;
-  border-radius: 0px;
+  border-radius: 10px;
   position: absolute;
-   left: 0px; 
+   left: 1px; 
    top: 210px;  
 }
 #therightpaddle {
   background-color: blue;
   width: 20px;
   height: 80px;
-  border-radius: 0px;
+  border-radius: 10px;
   position: absolute;
-   left: 420px; 
+   right: 1px; 
    top: 210px;  
 }
 #thescoreforplayer1 {

@@ -61,9 +61,17 @@ debugger
     repositiontherightpaddle();
     redrawtherightpaddle();
     doCollide(theleftpaddle, theball);
+    if (true) {
+     theball.speedX = theball.speedX;
+    }
     doCollide(theball, therightpaddle);
+    if (true) {
+      theball.speedX = -theball.speedX;
+     }
     collision( theball, board_width, board_height);
-    collision( thepaddle, board_width, board_height);
+    if (true) {
+      theball.speedY = -theball.speedY;
+     } 
   }
   
   
@@ -175,31 +183,7 @@ debugger
     return false;
     }
   }
-  function doCollide( theball, therightpaddle) {
-    
-    therightpaddle.leftX = therightpaddle.x;
-    therightpaddle.topY = therightpaddle.y;
-    therightpaddle.rightX = therightpaddle.x;
-    therightpaddle.bottomY = therightpaddle.y;
   
-    
-    theball.leftX = theball.x;
-    theball.topY = theball.y;
-    theball.rightX = theball.x;
-    theball.bottomY = theball.y;
-
-    
-    if ((theball.rightX > therightpaddle.leftX) &&  
-      (theball.leftX < therightpaddle.rightX) &&
-       (theball.bottomY > therightpaddle.topY) &&
-        (theball.topY < therightpaddle.bottomY)) {
-        
-      return true;
-      
-      } else {
-    return false;
-    }
-  }
   function collision( theball, board_width, board_height) {
     
     board_width.leftX = board_width.x;
@@ -226,30 +210,6 @@ debugger
     }
   
   }
-  function collision( thepaddle, board_width, board_height) {
+ 
     
-    board_width.leftX = board_width.x;
-    board_height.topY = board_height.y;
-    board_width.rightX = board_width.x;
-    board_height.bottomY = board_height.y;
-  
-    
-    thepaddle.leftX = thepaddle.x;
-    thepaddle.topY = thepaddle.y;
-    thepaddle.rightX = thepaddle.x;
-    thepaddle.bottomY = thepaddle.y;
-
-    
-    if ((thepaddle.rightX >= board_width.leftX) &&  
-      (thepaddle.leftX <= board_width.rightX) &&
-       (thepaddle.bottomY >= board_height.topY) &&
-        (thepaddle.topY <= board_height.bottomY)) {
-        
-      return true;
-      
-      } else {
-    return false;
-    }
-  
-  }
 }
