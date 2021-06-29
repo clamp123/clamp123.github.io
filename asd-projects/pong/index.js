@@ -60,11 +60,30 @@ debugger
     redrawtheleftpaddle();
     repositiontherightpaddle();
     redrawtherightpaddle();
-    doCollide(theleftpaddle, theball, therightpaddle);
+    doCollide(theleftpaddle, theball);
+    doCollide(theball, therightpaddle);
+    doCollide(theball, board_hight);
+    doCollide(board_hight, theball);
+    doCollide(theball, board_width);
+    doCollide(board_width, theball);
+    doCollide(theleftpaddle, board_hight);
+    doCollide(board_hight, theleftpaddle);
+    doCollide(therightpaddle, board_hight);
+    doCollide(board_hight, therightpaddle);
 
   }
   
-  doCollide(theleftpaddle, theball, therightpaddle);
+  doCollide(theleftpaddle, theball);
+  doCollide(theball, therightpaddle);
+  doCollide(theball, board_hight);
+  doCollide(board_hight, theball);
+  doCollide(theball, board_width);
+  doCollide(board_width, theball);
+  doCollide(theleftpaddle, board_hight);
+  doCollide(board_hight, theleftpaddle);
+  doCollide(therightpaddle, board_hight);
+  doCollide(board_hight, therightpaddle);
+  
   /* 
   Called in response to events.
   */
@@ -147,7 +166,7 @@ debugger
     // turn off event handlers
     $(document).off();
   }
-  function doCollide(theleftpaddle, theball, therightpaddle) {
+  function doCollide(theleftpaddle, theball) {
     
     theleftpaddle.leftX = theleftpaddle.x;
     theleftpaddle.topY = theleftpaddle.y;
@@ -160,10 +179,6 @@ debugger
     theball.rightX = theball.x;
     theball.bottomY = theball.y;
 
-    therightpaddle.leftX = therightpaddle.x;
-    therightpaddle.topY = therightpaddle.y;
-    therightpaddle.rightX = therightpaddle.x;
-    therightpaddle.bottomY = therightpaddle.y;
     
     if ((theleftpaddle.rightX > theball.leftX) &&  
       (theleftpaddle.leftX < theball.rightX) &&
@@ -174,8 +189,25 @@ debugger
       } else {
     return false;
     }
-  
-     if (theball.rightX > therightpaddle.leftX &&  theball.leftX < therightpaddle.rightX && theball.bottomY > therightpaddle.topY && theball.topY < therightpaddle.bottomY) {
+  }
+    function doCollide(theball, therightpaddle) {
+    
+      therightpaddle.leftX = therightpaddle.x;
+      therightpaddle.topY = therightpaddle.y;
+      therightpaddle.rightX = therightpaddle.x;
+      therightpaddle.bottomY = therightpaddle.y;
+      
+      theball.leftX = theball.x;
+      theball.topY = theball.y;
+      theball.rightX = theball.x;
+      theball.bottomY = theball.y;
+
+
+
+     if ((theball.rightX > therightpaddle.leftX) &&
+       (theball.leftX < therightpaddle.rightX) && 
+       (theball.bottomY > therightpaddle.topY) && 
+       (theball.topY < therightpaddle.bottomY)) {
       return true;
     } else {
   return false;
@@ -194,4 +226,265 @@ debugger
     theball.speedX = theball.speedX - 1;
   }
 }
+function doCollide(theball, board_hight) {
+    
+  
+  theball.leftX = theball.x;
+  theball.topY = theball.y;
+  theball.rightX = theball.x;
+  theball.bottomY = theball.y;
+
+
+
+ if ((theball.rightX > board_hight.leftX) &&
+   (theball.leftX < board_hight.rightX) && 
+   (theball.bottomY > board_hight.topY) && 
+   (theball.topY < board_hight.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(board_hight, theball) {
+    
+ 
+  
+  theball.leftX = theball.x;
+  theball.topY = theball.y;
+  theball.rightX = theball.x;
+  theball.bottomY = theball.y;
+
+
+
+ if ((board_hight.rightX > theball.leftX) &&
+   (board_hight.leftX < theball.rightX) && 
+   (board_hight.bottomY > theball.topY) && 
+   (board_hight.topY < theball.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(theball, board_width) {
+    
+  
+  theball.leftX = theball.x;
+  theball.topY = theball.y;
+  theball.rightX = theball.x;
+  theball.bottomY = theball.y;
+
+
+
+ if ((theball.rightX > board_width.leftX) &&
+   (theball.leftX < board_width.rightX) && 
+   (theball.bottomY > board_width.topY) && 
+   (theball.topY < board_width.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(board_width, theball) {
+    
+ 
+  
+  theball.leftX = theball.x;
+  theball.topY = theball.y;
+  theball.rightX = theball.x;
+  theball.bottomY = theball.y;
+
+
+
+ if ((board_width.rightX > theball.leftX) &&
+   (board_width.leftX < theball.rightX) && 
+   (board_width.bottomY > theball.topY) && 
+   (board_width.topY < theball.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(theleftpaddle, board_hight) {
+    
+  
+  theleftpaddle.leftX = theleftpaddle.x;
+  theleftpaddle.topY = theleftpaddle.y;
+  theleftpaddle.rightX = theleftpaddle.x;
+  theleftpaddle.bottomY = theleftpaddle.y;
+
+
+
+ if ((theleftpaddle.rightX > board_hight.leftX) &&
+   (theleftpaddle.leftX < board_hight.rightX) && 
+   (theleftpaddle.bottomY > board_hight.topY) && 
+   (theleftpaddle.topY < board_hight.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(board_hight, theleftpaddle) {
+    
+ 
+  
+  theleftpaddle.leftX = theleftpaddle.x;
+  theleftpaddle.topY = theleftpaddle.y;
+  theleftpaddle.rightX = theleftpaddle.x;
+  theleftpaddle.bottomY = theleftpaddle.y;
+
+
+
+ if ((board_hight.rightX > theleftpaddle.leftX) &&
+   (board_hight.leftX < theleftpaddle.rightX) && 
+   (board_hight.bottomY > theleftpaddle.topY) && 
+   (board_hight.topY < theleftpaddle.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(therightpaddle, board_hight) {
+    
+  
+  therightpaddle.leftX = therightpaddle.x;
+  therightpaddle.topY = therightpaddle.y;
+  therightpaddle.rightX = therightpaddle.x;
+  therightpaddle.bottomY = therightpaddle.y;
+
+
+
+ if ((therightpaddle.rightX > board_hight.leftX) &&
+   (therightpaddle.leftX < board_hight.rightX) && 
+   (therightpaddle.bottomY > board_hight.topY) && 
+   (therightpaddle.topY < board_hight.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+function doCollide(board_hight, therightpaddle) {
+    
+ 
+  
+  therightpaddle.leftX = therightpaddle.x;
+  therightpaddle.topY = therightpaddle.y;
+  therightpaddle.rightX = therightpaddle.x;
+  therightpaddle.bottomY = therightpaddle.y;
+
+
+
+ if ((board_hight.rightX > therightpaddle.leftX) &&
+   (board_hight.leftX < therightpaddle.rightX) && 
+   (board_hight.bottomY > therightpaddle.topY) && 
+   (board_hight.topY < therightpaddle.bottomY)) {
+  return true;
+} else {
+return false;
+} 
+
+if (theball.y < -10) {
+theball.speedY = theball.speedY + 1;
+}
+if (theball.y > board_hight) {
+theball.speedY = theball.speedY - 1;
+}
+if (theball.x < -10) {
+theball.speedX = theball.speedX + 1;
+}
+if (theball.x > board_width) {
+theball.speedX = theball.speedX - 1;
+}
+}
+
 }
