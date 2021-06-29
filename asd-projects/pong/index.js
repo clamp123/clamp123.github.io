@@ -61,16 +61,9 @@ debugger
     repositiontherightpaddle();
     redrawtherightpaddle();
     doCollide(theleftpaddle, theball);
-    hope(theball, therightpaddle);
-    Medic(theball, board_hight);
-    help(board_hight, theball);
-    thing(theball, board_width);
-    oompa(board_width, theball);
-    loompa(theleftpaddle, board_hight);
-    jaws(board_hight, theleftpaddle);
-    oak(therightpaddle, board_hight);
-    wood(board_hight, therightpaddle);
-
+    doCollide(theball, therightpaddle);
+    collision( theball, board_width, board_height);
+    collision( thepaddle, board_width, board_height);
   }
   
   
@@ -182,301 +175,81 @@ debugger
     return false;
     }
   }
-    function hope(theball, therightpaddle) {
+  function doCollide( theball, therightpaddle) {
     
-      therightpaddle.leftX = therightpaddle.x;
-      therightpaddle.topY = therightpaddle.y;
-      therightpaddle.rightX = therightpaddle.x;
-      therightpaddle.bottomY = therightpaddle.y;
-      
-      theball.leftX = theball.x;
-      theball.topY = theball.y;
-      theball.rightX = theball.x;
-      theball.bottomY = theball.y;
+    therightpaddle.leftX = therightpaddle.x;
+    therightpaddle.topY = therightpaddle.y;
+    therightpaddle.rightX = therightpaddle.x;
+    therightpaddle.bottomY = therightpaddle.y;
+  
+    
+    theball.leftX = theball.x;
+    theball.topY = theball.y;
+    theball.rightX = theball.x;
+    theball.bottomY = theball.y;
 
-
-
-     if ((theball.rightX > therightpaddle.leftX) &&
-       (theball.leftX < therightpaddle.rightX) && 
-       (theball.bottomY > therightpaddle.topY) && 
-       (theball.topY < therightpaddle.bottomY)) {
+    
+    if ((theball.rightX > therightpaddle.leftX) &&  
+      (theball.leftX < therightpaddle.rightX) &&
+       (theball.bottomY > therightpaddle.topY) &&
+        (theball.topY < therightpaddle.bottomY)) {
+        
       return true;
-    } else {
-  return false;
-  } 
- 
-  if (theball.y < -10) {
-  theball.speedY = theball.speedY + 1;
-  }
-  if (theball.y > board_hight) {
-    theball.speedY = theball.speedY - 1;
-  }
-  if (theball.x < -10) {
-    theball.speedX = theball.speedX + 1;
+      
+      } else {
+    return false;
     }
-  if (theball.x > board_width) {
-    theball.speedX = theball.speedX - 1;
   }
-}
-function Medic(theball, board_hight) {
+  function collision( theball, board_width, board_height) {
     
+    board_width.leftX = board_width.x;
+    board_height.topY = board_height.y;
+    board_width.rightX = board_width.x;
+    board_height.bottomY = board_height.y;
   
-  theball.leftX = theball.x;
-  theball.topY = theball.y;
-  theball.rightX = theball.x;
-  theball.bottomY = theball.y;
-
-
-
- if ((theball.rightX > board_hight.leftX) &&
-   (theball.leftX < board_hight.rightX) && 
-   (theball.bottomY > board_hight.topY) && 
-   (theball.topY < board_hight.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function help(board_hight, theball) {
     
- 
-  
-  theball.leftX = theball.x;
-  theball.topY = theball.y;
-  theball.rightX = theball.x;
-  theball.bottomY = theball.y;
+    theball.leftX = theball.x;
+    theball.topY = theball.y;
+    theball.rightX = theball.x;
+    theball.bottomY = theball.y;
 
-
-
- if ((board_hight.rightX > theball.leftX) &&
-   (board_hight.leftX < theball.rightX) && 
-   (board_hight.bottomY > theball.topY) && 
-   (board_hight.topY < theball.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function thing(theball, board_width) {
     
+    if ((theball.rightX >= board_width.leftX) &&  
+      (theball.leftX <= board_width.rightX) &&
+       (theball.bottomY >= board_height.topY) &&
+        (theball.topY <= board_height.bottomY)) {
+        
+      return true;
+      
+      } else {
+    return false;
+    }
   
-  theball.leftX = theball.x;
-  theball.topY = theball.y;
-  theball.rightX = theball.x;
-  theball.bottomY = theball.y;
-
-
-
- if ((theball.rightX > board_width.leftX) &&
-   (theball.leftX < board_width.rightX) && 
-   (theball.bottomY > board_width.topY) && 
-   (theball.topY < board_width.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function oompa(board_width, theball) {
+  }
+  function collision( thepaddle, board_width, board_height) {
     
- 
+    board_width.leftX = board_width.x;
+    board_height.topY = board_height.y;
+    board_width.rightX = board_width.x;
+    board_height.bottomY = board_height.y;
   
-  theball.leftX = theball.x;
-  theball.topY = theball.y;
-  theball.rightX = theball.x;
-  theball.bottomY = theball.y;
-
-
-
- if ((board_width.rightX > theball.leftX) &&
-   (board_width.leftX < theball.rightX) && 
-   (board_width.bottomY > theball.topY) && 
-   (board_width.topY < theball.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function loompa(theleftpaddle, board_hight) {
     
-  
-  theleftpaddle.leftX = theleftpaddle.x;
-  theleftpaddle.topY = theleftpaddle.y;
-  theleftpaddle.rightX = theleftpaddle.x;
-  theleftpaddle.bottomY = theleftpaddle.y;
+    thepaddle.leftX = thepaddle.x;
+    thepaddle.topY = thepaddle.y;
+    thepaddle.rightX = thepaddle.x;
+    thepaddle.bottomY = thepaddle.y;
 
-
-
- if ((theleftpaddle.rightX > board_hight.leftX) &&
-   (theleftpaddle.leftX < board_hight.rightX) && 
-   (theleftpaddle.bottomY > board_hight.topY) && 
-   (theleftpaddle.topY < board_hight.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function jaws(board_hight, theleftpaddle) {
     
- 
+    if ((thepaddle.rightX >= board_width.leftX) &&  
+      (thepaddle.leftX <= board_width.rightX) &&
+       (thepaddle.bottomY >= board_height.topY) &&
+        (thepaddle.topY <= board_height.bottomY)) {
+        
+      return true;
+      
+      } else {
+    return false;
+    }
   
-  theleftpaddle.leftX = theleftpaddle.x;
-  theleftpaddle.topY = theleftpaddle.y;
-  theleftpaddle.rightX = theleftpaddle.x;
-  theleftpaddle.bottomY = theleftpaddle.y;
-
-
-
- if ((board_hight.rightX > theleftpaddle.leftX) &&
-   (board_hight.leftX < theleftpaddle.rightX) && 
-   (board_hight.bottomY > theleftpaddle.topY) && 
-   (board_hight.topY < theleftpaddle.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function oak(therightpaddle, board_hight) {
-    
-  
-  therightpaddle.leftX = therightpaddle.x;
-  therightpaddle.topY = therightpaddle.y;
-  therightpaddle.rightX = therightpaddle.x;
-  therightpaddle.bottomY = therightpaddle.y;
-
-
-
- if ((therightpaddle.rightX > board_hight.leftX) &&
-   (therightpaddle.leftX < board_hight.rightX) && 
-   (therightpaddle.bottomY > board_hight.topY) && 
-   (therightpaddle.topY < board_hight.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-function wood(board_hight, therightpaddle) {
-    
- 
-  
-  therightpaddle.leftX = therightpaddle.x;
-  therightpaddle.topY = therightpaddle.y;
-  therightpaddle.rightX = therightpaddle.x;
-  therightpaddle.bottomY = therightpaddle.y;
-
-
-
- if ((board_hight.rightX > therightpaddle.leftX) &&
-   (board_hight.leftX < therightpaddle.rightX) && 
-   (board_hight.bottomY > therightpaddle.topY) && 
-   (board_hight.topY < therightpaddle.bottomY)) {
-  return true;
-} else {
-return false;
-} 
-
-if (theball.y < -10) {
-theball.speedY = theball.speedY + 1;
-}
-if (theball.y > board_hight) {
-theball.speedY = theball.speedY - 1;
-}
-if (theball.x < -10) {
-theball.speedX = theball.speedX + 1;
-}
-if (theball.x > board_width) {
-theball.speedX = theball.speedX - 1;
-}
-}
-
+  }
 }
