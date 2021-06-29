@@ -177,6 +177,7 @@ debugger
         (theleftpaddle.topY < theball.bottomY)) {
         
       return true;
+      
       } else {
     return false;
     }
