@@ -61,28 +61,19 @@ debugger
     repositiontherightpaddle();
     redrawtherightpaddle();
     doCollide(theleftpaddle, theball);
-    doCollide(theball, therightpaddle);
-    doCollide(theball, board_hight);
-    doCollide(board_hight, theball);
-    doCollide(theball, board_width);
-    doCollide(board_width, theball);
-    doCollide(theleftpaddle, board_hight);
-    doCollide(board_hight, theleftpaddle);
-    doCollide(therightpaddle, board_hight);
-    doCollide(board_hight, therightpaddle);
+    hope(theball, therightpaddle);
+    Medic(theball, board_hight);
+    help(board_hight, theball);
+    thing(theball, board_width);
+    oompa(board_width, theball);
+    loompa(theleftpaddle, board_hight);
+    jaws(board_hight, theleftpaddle);
+    oak(therightpaddle, board_hight);
+    wood(board_hight, therightpaddle);
 
   }
   
-  doCollide(theleftpaddle, theball);
-  doCollide(theball, therightpaddle);
-  doCollide(theball, board_hight);
-  doCollide(board_hight, theball);
-  doCollide(theball, board_width);
-  doCollide(board_width, theball);
-  doCollide(theleftpaddle, board_hight);
-  doCollide(board_hight, theleftpaddle);
-  doCollide(therightpaddle, board_hight);
-  doCollide(board_hight, therightpaddle);
+  
   
   /* 
   Called in response to events.
@@ -190,7 +181,7 @@ debugger
     return false;
     }
   }
-    function doCollide(theball, therightpaddle) {
+    function hope(theball, therightpaddle) {
     
       therightpaddle.leftX = therightpaddle.x;
       therightpaddle.topY = therightpaddle.y;
@@ -226,7 +217,7 @@ debugger
     theball.speedX = theball.speedX - 1;
   }
 }
-function doCollide(theball, board_hight) {
+function Medic(theball, board_hight) {
     
   
   theball.leftX = theball.x;
@@ -258,7 +249,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(board_hight, theball) {
+function help(board_hight, theball) {
     
  
   
@@ -291,7 +282,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(theball, board_width) {
+function thing(theball, board_width) {
     
   
   theball.leftX = theball.x;
@@ -323,7 +314,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(board_width, theball) {
+function oompa(board_width, theball) {
     
  
   
@@ -356,7 +347,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(theleftpaddle, board_hight) {
+function loompa(theleftpaddle, board_hight) {
     
   
   theleftpaddle.leftX = theleftpaddle.x;
@@ -388,7 +379,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(board_hight, theleftpaddle) {
+function jaws(board_hight, theleftpaddle) {
     
  
   
@@ -421,7 +412,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(therightpaddle, board_hight) {
+function oak(therightpaddle, board_hight) {
     
   
   therightpaddle.leftX = therightpaddle.x;
@@ -453,7 +444,7 @@ if (theball.x > board_width) {
 theball.speedX = theball.speedX - 1;
 }
 }
-function doCollide(board_hight, therightpaddle) {
+function wood(board_hight, therightpaddle) {
     
  
   
