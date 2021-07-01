@@ -204,30 +204,14 @@ debugger
   
   function collision( theball, board_height) {
     
-    board_height.leftX = board_height.x;
-    board_height.topY = board_height.y;
-    board_height.rightX = board_height.x;
-    board_height.bottomY = board_height.y + board_height.height;
-  
-    
-    theball.leftX = theball.x;
-    theball.topY = theball.y;
-    theball.rightX = theball.x + theball.width;
-    theball.bottomY = theball.y + theball.height;
-
-    
-    if ((theball.rightX >= board_height.leftX) &&  
-      (theball.leftX <= board_height.rightX) &&
-       (theball.bottomY >= board_height.topY) &&
-        (theball.topY <= board_height.bottomY)) {
-        
-      return true;
-      
-      } else {
-    return false;
-    }
+  if ((theball.bottomY >= board_height) &&
+   (theball.topY <= board_height)){
+     return true;
+   } else {
+     return false;
+   }
   
   }
- 
+
     
 }
