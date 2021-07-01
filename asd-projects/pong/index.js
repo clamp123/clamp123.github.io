@@ -34,10 +34,11 @@ debugger
   // mobility
   var theball = pongstuff("#theball");
   theball.speedX = 3;
-  theball.speedY = (Math.random() * 6);
+  theball.speedY = (Math.random() * 6 - 3);
   var theleftpaddle = pongstuff("#theleftpaddle");
   var therightpaddle = pongstuff("#therightpaddle");
-  
+  var board_width = 443
+  var board_height = 440
   
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
