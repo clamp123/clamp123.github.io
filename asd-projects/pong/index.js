@@ -62,33 +62,33 @@ debugger
     redrawtherightpaddle();
     doCollide(theleftpaddle, theball);
    
-    var check = doCollide(theleftpaddle, theball);
-    if ('doCollide(theleftpaddle, theball)' === true) {
+    //var check = doCollide(theleftpaddle, theball);
+    if (check === true) {
      theball.speedX = theball.speedX;
     }
     else {
       theball.speedX = -theball.speedX;
     }
-    //var check = doCollide(theleftpaddle, theball);
+    var check = doCollide(theleftpaddle, theball);
 
     doCollide(theball, therightpaddle);
-    var check = doCollide(theball, therightpaddle);
-    if ('doCollide(theball, therightpaddle)' === true) {
+    //var check = doCollide(theball, therightpaddle);
+    if (check === true) {
       theball.speedX = -theball.speedX;
      }
      else {
       theball.speedX = theball.speedX;
      }
-     //var check = doCollide(theball, therightpaddle);
+     var check = doCollide(theball, therightpaddle);
     collision( theball, board_width, board_height);
-    var check = collision( theball, board_width, board_height);
-    if ('collision( theball, board_width, board_height)' === true) {
+    //var check = collision( theball, board_width, board_height);
+    if (check === true) {
       theball.speedY = -theball.speedY;
      } 
      else {
       theball.speedY = theball.speedY;
      }
-    // var check = collision( theball, board_width, board_height);
+     var check = collision( theball, board_width, board_height);
   }
   
   
