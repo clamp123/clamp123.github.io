@@ -204,8 +204,8 @@ debugger
   
   function collision( theball, board_height) {
     
-  if ((theball.bottomY >= board_height) &&
-   (theball.topY <= board_height)){
+  if ((theball.bottomY >= board_height) ||
+   (theball.topY <= 0)){
      return true;
    } else {
      return false;
