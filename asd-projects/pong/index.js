@@ -82,7 +82,7 @@ debugger
      }
      
     
-    var check = collision( theball, board_width, board_height);
+    var check = collision( theball, board_height);
     if (check === true) {
       theball.speedY = -theball.speedY;
      } 
@@ -202,22 +202,22 @@ debugger
     }
   }
   
-  function collision( theball, board_width, board_height) {
+  function collision( theball, board_height) {
     
-    board_width.leftX = board_width.x;
+    board_height.leftX = board_height.x;
     board_height.topY = board_height.y;
-    board_width.rightX = board_width.x;
-    board_height.bottomY = board_height.y;
+    board_height.rightX = board_height.x;
+    board_height.bottomY = board_height.y + board_height.height;
   
     
     theball.leftX = theball.x;
     theball.topY = theball.y;
-    theball.rightX = theball.x;
-    theball.bottomY = theball.y;
+    theball.rightX = theball.x + theball.width;
+    theball.bottomY = theball.y + theball.height;
 
     
-    if ((theball.rightX >= board_width.leftX) &&  
-      (theball.leftX <= board_width.rightX) &&
+    if ((theball.rightX >= board_height.leftX) &&  
+      (theball.leftX <= board_height.rightX) &&
        (theball.bottomY >= board_height.topY) &&
         (theball.topY <= board_height.bottomY)) {
         
