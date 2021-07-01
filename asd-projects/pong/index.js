@@ -65,10 +65,10 @@ debugger
    
     var check = doCollide(theleftpaddle, theball);
     if (check === true) {
-     theball.speedX = theball.speedX;
+     theball.speedX = -theball.speedX;
     }
     else {
-      theball.speedX = -theball.speedX;
+      theball.speedX = theball.speedX;
     }
     
 
