@@ -180,14 +180,14 @@ debugger
     
     theleftpaddle.leftX = theleftpaddle.x;
     theleftpaddle.topY = theleftpaddle.y;
-    theleftpaddle.rightX = theleftpaddle.x;
-    theleftpaddle.bottomY = theleftpaddle.y;
+    theleftpaddle.rightX = theleftpaddle.x + theleftpaddle.width;
+    theleftpaddle.bottomY = theleftpaddle.y + theleftpaddle.height;
   
     
     theball.leftX = theball.x;
     theball.topY = theball.y;
-    theball.rightX = theball.x;
-    theball.bottomY = theball.y;
+    theball.rightX = theball.x + theball.width;
+    theball.bottomY = theball.y + theball.height;
 
     
     if ((theleftpaddle.rightX > theball.leftX) &&  
