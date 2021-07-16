@@ -89,7 +89,13 @@ debugger
      else {
       theball.speedY = theball.speedY;
      }
-
+     var check = collision( theball, board_width);
+     if (check === true) {
+       theball.speedX = -theball.speedX;
+      } 
+      else {
+       theball.speedX = theball.speedX;
+      }
   }
   
   
@@ -212,6 +218,15 @@ debugger
    }
   
   }
-
+  function collision( theball, board_width) {
+    
+    if ((theball.bottomY >= board_width) ||
+     (theball.topY <= 0)){
+       return true;
+     } else {
+       return false;
+     }
+    
+    }
     
 }
