@@ -3,9 +3,9 @@
 $(document).ready(function(){
     const $display = $('#display');
 
-    // TODO: Call your apply function(s) here
-applyFilter(reddify, decreaseBlue, increaseGreenByBlue);
-applyFilterNoBackground(reddify, decreaseBlue, increaseGreenByBlue);
+    // Multiple TODOs: Call your apply function(s) here
+
+
 
 
 
@@ -16,52 +16,19 @@ applyFilterNoBackground(reddify, decreaseBlue, increaseGreenByBlue);
 // "apply" and "filter" functions should go below here //
 /////////////////////////////////////////////////////////
 
-// TODO 1 & 3: Create the applyFilter function here
-function applyFilter(filterFunction) {
-for (var a = 0; a < image.length; a++) {
-    var row = image[a];
-for (var b = 0; b < row.length; b++) { 
-        //var value = image[a][b];
-       // var rgbString = image[a][b];//
-      // var rgbNumbers = rgbStringToArray(rgbString);
-      // filterFunction(rgbNumbers);
-      // var rgbString = arrayToString(rgbNumbers);
-       // image[a][b] = rgbString;//
-        var rgbString = image[a][b];
-       var rgbNumbers = rgbStringToArray(rgbString);
-       filterFunction(rgbNumbers);
-       rgbString = rgbArrayToString(rgbNumbers);
-        image[a][b] = rgbString;
+// TODO 1, 2 & 4: Create the applyFilter function here
 
-    };
-};
-    
-}
 
-// TODO 5: Create the applyFilterNoBackground function
-function applyFilterNoBackground(filterFunction) {
-    for (var a = 0; a < image.length; a++) {
-        for (var b = 0; b < image[a].length; b++) {
-            if (image[a][b] !== image[0][0]) {
-                var rgbString = image[a][b];
-                var rgbNumbers = rgbStringToArray(rgbString);
-                filterFunction(rgbNumbers);
-                var rgbString = rgbArrayToString(rgbNumbers);
-            }
-        }
-    }
-}
+// TODO 7: Create the applyFilterNoBackground function
 
-// TODO 2 & 4: Create filter functions
-function reddify(rgbNumbers) {
-    rgbNumbers[RED] = 255;
-}
 
-function decreaseBlue(rgbNumbers) {
-    rgbNumbers[BLUE] = Math.max(0, rgbNumbers[BLUE] - 30)
-    }
-function increaseGreenByBlue(rgbNumbers) {
-    rgbNumbers[GREEN] = Math.min(255, rgbNumbers[GREEN] + rgbNumbers[BLUE])
-}
+// TODO 5: Create the keepInBounds function
+
+
+// TODO 3: Create reddify function
+
+
+// TODO 6: Create more filter functions
+
 
 // CHALLENGE code goes below here

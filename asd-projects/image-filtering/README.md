@@ -7,11 +7,13 @@ Use higher order functions to apply filters to images.
   - [Project Grading](#project-grading)
 - [TODOs](#todos)
   - [TODO 0: Study Existing Code (no coding)](#todo-0-study-existing-code-no-coding)
-  - [TODO 1: Create the `applyFilter` Function](#todo-1-create-the-applyfilter-function)
-  - [TODO 2: Create a Filter Function](#todo-2-create-a-filter-function)
-  - [TODO 3: Update `applyFilter`](#todo-3-update-applyfilter)
-  - [TODO 4: Create More Filter Functions](#todo-4-create-more-filter-functions)
-  - [TODO 5: Create the `applyFilterNoBackground` Function](#todo-5-create-the-applyfilternobackground-function)
+  - [TODO 1: Create the `applyFilter` Function Part 1](#todo-1-create-the-applyfilter-function-part-1)
+  - [TODO 2: Create the `applyFilter` Function Part 2](#todo-2-create-the-applyfilter-function-part-2)
+  - [TODO 3: Create a Filter Function](#todo-3-create-a-filter-function)
+  - [TODO 4: Update `applyFilter`](#todo-4-update-applyfilter)
+  - [TODO 5: Create the `keepInBounds` Function](#todo-5-create-the-keepinbounds-function)
+  - [TODO 6: Create More Filter Functions](#todo-6-create-more-filter-functions)
+  - [TODO 7: Create the `applyFilterNoBackground` Function](#todo-7-create-the-applyfilternobackground-function)
   - [Challenge Task: Smudge](#challenge-task-smudge)
   - [Submit Your Work](#submit-your-work)
 
@@ -26,6 +28,14 @@ In this project you will be building a simple program that applies filters to im
 - Practice working with nested for loops
 - Practice using higher order functions
 
+## Push Reminder
+To push to GitHub, enter the following commands in bash:
+```
+git add -A
+git commit -m "saving image-filtering"
+git push
+```
+
 ## Project Grading
 
 ### Best Practices (15 points)
@@ -37,11 +47,13 @@ In this project you will be building a simple program that applies filters to im
 ### Program Progress (85 points)
 
 * TODO 0 - 0 points, but important to go through anyway
-* TODO 1 - 20 points
-* TODO 2 - 10 points 
-* TODO 3 - 10 points 
-* TODO 4 - 20 points 
-* TODO 5 - 25 points 
+* TODO 1 - 10 points
+* TODO 2 - 20 points
+* TODO 3 - 5 points 
+* TODO 4 - 10 points 
+* TODO 5 - 10 points 
+* TODO 6 - 10 points
+* TODO 7 - 20 points 
 * Challenge - 25 points (bonus)
 **NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but can be done as an alternative to the required TODOs.
 
@@ -58,102 +70,199 @@ Before you begin working, you should look at the `image.js` file to see what has
 * `rgbStringToArray` function - use this to convert the "rgb string" values into arrays of numbers that are easier to process.
 * `rgbArrayToString` function - use this to convert a numerical array back into an "rgb string". You will need to convert your filtered data back into a string for it to apply.
 
-Once you have looked over the above and are comfortable with it, move on to the rest of the project below.
+>Once you have looked over the above and are comfortable with it, move on to the rest of the project below.
 
-## TODO 1: Create the `applyFilter` Function
-This TODO and all future TODOs should be completed inside of the `index.js` file.
+## TODO 1: Create the `applyFilter` Function Part 1
+>**IMPORTANT:** This TODO and all future TODOs should be completed inside of the `index.js` file.
 
-Your first task is to create an `applyFilter` function. This is a big one, so we'll break it down into steps.
+Your first task is to create an `applyFilter` function. This is a big one, so we'll break it down into steps across multiple TODOs.
 
-### Step 1: Make and Call the Function
-First thing's first: make the function. Give it the name `applyFilter`, and for now, don't give it any parameters. That will change later, but it is good enough for now.
+* **1a)** Make a function called name `applyFilter`, and for now, don't give it any parameters. Also leave the code block empty until **1c**.
 
-Once you've done that, call the function up in the "document on" section (this runs as soon as your web page has loaded -- you may have noticed this in other projects, as well).
+* **1b)** Call `applyFilter` in the `$(document).ready` section at the top of your file. There is a comment that tells you where to put the function call. 
 
-### Step 2: Make the Loops
-Next, make the nested loops to loop over your `image` data. Be careful not to mix up the counting variables of each loop.
+* **1c)** Inside of the code block of `applyFilter`, make nested loops to iterate over your `image` data. Recall that `image` is a 2D array, and be careful not to mix up the counting variables of each loop. Reference either Greenlight or your slides (or do a Google search) if you need a reminder on how to iterate over a 2D array.
 
-### Step 3: Alter Your Image
-Before moving on, go through TODO 0 if you haven't already to look at the code in `image.js`. The code in there can be used in your `index.js` file where you are currently working. This is important, because you will be using the `rgbStringToArray()` and `rgbArrayToString()` functions that were created in the `image.js` file.  
+## TODO 2: Create the `applyFilter` Function Part 2
 
-Now, for this step, you will need to alter your image. This should be done in the body of the inner loop, and is done in five steps (one line of code each, in order):
+>**REMINDER:** Before moving on, go through TODO 0 if you haven't already to look at the code in `image.js`. The code in there can be used in your `index.js` file where you are currently working. This is important, because you will be using the `rgbStringToArray()` and `rgbArrayToString()` functions that were created in the `image.js` file.  
 
-1. Pull out one of the string values from the `image` array. You will want to store this value in a variable (for example, you may want to call the variable `rgbString`).
-2. Make a new `rgbNumbers` variable. Use `rgbStringToArray()` with `rgbString` as an argument to produce a new array. Store the array in the `rgbNumbers` variable.
+Now, for this step, you will need to alter your image. **This should be done in the body of the inner loop**, and is done in five steps (one line of code each, in order).
 
-**NOTE:** The `rgbNumbers` array (and any other array produced by `rgbStringToArray` consists of three values. Use the indices of `RED`, `GREEN`, and `BLUE` to access those three values. Each of them corresponds to the amount of red, green, or blue in the pixel that the array was created from.
+* **2a)** Retrieve one of string values from the 2D `image` array using bracket notation; you should use the counting variables so that ultimately all values will be used. You will want to store this value in a variable called `rgbString`.
 
-3. Alter the contents of the `rgbNumbers` array. For now, simply change the `RED` value to its maximum (`255`). Don't forget that you have the `RED`, `GREEN`, and `BLUE` constants to use as indices for your `rgbNumbers` array.
-4. Use `rgbArrayToString` to convert the `rgbNumbers` array back into a string (you may overwrite the `rgbString` variable with the new value).
-5. Store the new `rgbString` back in the `image` array (put it at the same index location that you first pulled the original `rgbString` out of).
+* **2b)** Make a new `rgbNumbers` variable. Call `rgbStringToArray()` with `rgbString` as an argument, and `rgbStringToArray()` will return a new array. Store the returned array in the `rgbNumbers` variable.
 
-Once this is done, check your preview to see if your image became much more yellow/orange/red. If so, then you are ready for the next step!
+* **2c)** Alter the contents of the `rgbNumbers` array. For now, simply change the `RED` value to its maximum (`255`). Don't forget that you have the `RED`, `GREEN`, and `BLUE` constants to use as indices for your `rgbNumbers` array.
 
+>**NOTE:** The `rgbNumbers` array (and any other array produced by `rgbStringToArray` consists of three values. Use the indices of `RED`, `GREEN`, and `BLUE` to access those three values. Each of them corresponds to the amount of red, green, or blue in the pixel that the array was created from.
+>
+>**Example:** `rgbNumbers[GREEN] = 0;` would set the "green" portion of the `rgbNumbers` array to `0` (thus removing all "green")
 
+* **2d)** Call `rgbArrayToString()` with `rgbNumbers` as an argument. This will return a new string. Assign the new string back into the `rgbString` variable.
 
-## TODO 2: Create a Filter Function
+* **2e)** Assign `rgbString` back into the `image` array (put it at the same index location that you first pulled the original `rgbString` out of back in **2a.**).
 
-This step is simple. Create a new function called `reddify` that takes a single array as an argument. This function should change the `RED` index of the array to have a value of `255`. 
+>**TESTING:** Once this is done, check your preview to see if your image became much more yellow/orange/red. If so, then you are ready for the next TODO!
 
-That's it! There is no return or output for this function.
+## TODO 3: Create a Filter Function
 
-## TODO 3: Update `applyFilter`
+This TODO requires you to make a filter function.
+
+**CODE:** Create the following function:
+* **Name:** `reddify`
+* **Parameters:** 1 (name the parameter whatever you want, but expect it to be an array)
+* **Returns:** Nothing
+* **Description:** This function should do the following:
+    1. Set the `RED` index of the array to have a value of `200`.
+    2. Do **not** return anything.
+
+That's it!
+
+## TODO 4: Update `applyFilter`
 
 Now, you need to make your `applyFilter` be a higher order function that uses other functions to apply filters to the image. This can be done in three steps.
 
-1. Give your `applyFilter` function a single parameter called `filterFunction`. This parameter is going to store the filter function.
-2. Up where you call your `applyFilter` function, plug `reddify` in as an argument. Remember that you are *not* calling `reddify` here.
-3. Find the line where `applyFilter` changes the `rgbNumbers` array. Replace that line with a call to `filterFunction` with `rgbNumbers` as the argument to `filterFunction`.
+* **4a)** Give your `applyFilter` function a single parameter called `filterFunction`. This parameter is going to store the filter function.
+* **4b)** Up where you call your `applyFilter` function, plug `reddify` in as an argument. Remember that you are *not* calling `reddify` here.
+* **4c)** Find the line where `applyFilter` changes the `rgbNumbers` array. Replace that entire line with a call to `filterFunction` with `rgbNumbers` as the argument to `filterFunction`.
 
-If it works, then your preview should show your image tinted red. If it doesn't, check the following for errors:
+>**TESTING:** Your preview should now show your image tinted red, but not quite as red as before. If it doesn't, then check the following for errors:
+>
+>* make sure that you are **not** calling `reddify` when you pass it as an argument to `applyFilter`
+>* make sure that you are **not** calling `filterFunction` in the parameter list
+>* make sure that you ***are*** calling `filterFunction` with `rgbNumbers` as an argument on the correct line
 
-* make sure that you are not calling `reddify` when you pass it as an argument to `applyFilter`
-* make sure that you are not calling `filterFunction` in the parameter list
-* make sure that you ***are*** calling `filterFunction` with `rgbNumbers` as an argument on the correct line
+## TODO 5: Create the `keepInBounds` Function
 
-## TODO 4: Create More Filter Functions
+Now that `applyFilter` is a higher order function, you should make more filters to pass to `applyFilter`. Before you do that, however, you should also make a new helper function called `keepInBounds`.
 
-Now that `applyFilter` is a higher order function, you should make more filters to pass to `applyFilter`. You must make at minimum the two filters below, but you can make more if you want.
+>**READ:** When changing a color value, you must make sure that you never go above `255` or below `0`. While your browser won't do anything weird if you do go past those bounds, you may have unexpected results when applying multiple filters in a row. To avoid this, you must make a new function that will keep numbers within the range of `0` - `255`.
 
-### Filter 1: `decreaseBlue`
-This filter should subtract at least `30` from the `BLUE` value of a pixel. Be sure to use `Math.max()` to make certain the value doesn't go below `0`!
+**CODE:** Create the following function:
+* **Name:** `keepInBounds`
+* **Parameters:** 1 (name the parameter whatever you want, but expect it to be a number)
+* **Returns:** A number between `0` and `255`
+* **Description:** This function should do the following:
+    1. If the parameter has a value of less than `0`, return `0`.
+    2. If the parameter has a value of greater than `255`, return `255`.
+    3. If the parameter's value is between `0` and `255`, return the parameter's value.
+    4. For full credit, you *MUST NOT* use `if` statements in the function. Use `Math.max()` and `Math.min()` to decide what value to return. (Alternatively, you can look up the "ternary operator" on Google and use that, but it is not required).
 
-### Filter 2: `increaseGreenByBlue`
-This filter should add the `BLUE` value to the `GREEN` value of a pixel. Be sure to use `MATH.min()` to make certain that the value does not go over `255`!
+><details> <summary> CLICK FOR HINTS on using Math.max() and Math.min() </summary>
+>
+>`Math.max()` returns the largest value passed to it. For instance, `Math.max(20, 100)` would return `100`. By itself, this isn't very useful, but what if you used variables (or parameters, hint-hint).
+>
+>```js
+>// Example
+>var x = 50;
+>var y = 15;
+>var result1 = Math.max(x, 30);
+>var result2 = Math.max(y, 30);
+>```
+>
+>In this case, `result1` would be `50` and `result2` would be `30`. 
+>
+>Notice what this means. By hard-coding `30` here and using a variable, `Math.max()` enforces a *minimum* value. That is, you will never get a value of less than 30. **How can you use this to make sure that `keepInBounds` will never have a value of less than `0`?**
+>
+>`Math.min()` works similarly, but in reverse.
+>
+>```js
+>// Example
+>var x = 50;
+>var y = 15;
+>var result1 = Math.min(x, 30);
+>var result2 = Math.min(y, 30);
+>```
+>
+>In this case, `result1` would be `30` and `result2` would be `15`. 
+>
+>See how this is the opposite of `Math.max()`? By hard-coding `30` here and using a variable, `Math.min()` enforces a *maximum* value. That is, you will never get a value of *greater than* 30. **How can you use this to make sure that `keepInBounds` will never have a value of greater than `255`?**
+>
+>**Final Hint:** You can pass the result of `Math.max()` as an argument to `Math.min()` if you wish. The reverse is also true. That would be the fastest way to write this code.
+>
+>Alternatively, you can make a temporary variable to store the results of the `Math.min()` and `Math.max()` function calls, then `return` that once you are done.
+>
+></details>
 
-### Apply the Filters
-Once you have both filters created, apply all three of them by calling `applyFilter` 3 times, with each filter passed as arguments in turn.
+<br>
 
-## TODO 5: Create the `applyFilterNoBackground` Function
+>**TESTING:** Test your code by inserting the following lines into your program (you may delete them when the tests pass). Open up a preview of your work and check the console to see if `0`, `255`, and `127` are printing. If they are, then everything is good.
 
-Now it's time to apply everything you've done all at once. 
+```js
+console.log(keepInBounds(-30)); // should print 0
+console.log(keepInBounds(300)); // should print 255
+console.log(keepInBounds(127)); // should print 127
+```
 
-Create a new function called `applyFilterNoBackground`. It should be identical to the `applyFilter` function except for one difference: it will not apply the filter to the background color!
+## TODO 6: Create More Filter Functions
 
-It is up to you to figure out how to make this work, but here is one hint that you can use.
+Now it's time to finally create some more filter functions.
 
-The background color can be gotten by looking at the top left pixel of your image. Any other pixel with that color, you can assume is part of the background! It might help if you simply compare the string stored in the top left pixel with the other pixels, rather than using arrays for comparison. Whatever you do, **do not hard code the value**.
+**CODE:** Create the following function:
+* **Name:** `decreaseBlue`
+* **Parameters:** 1 (name the parameter whatever you want, but expect it to be an array)
+* **Returns:** Nothing
+* **Description:** This function should do the following:
+    1. Subtract `50` from the value stored at the array's `BLUE` index. 
+    2. Pass the resulting value from step 1's calculation as an argument to the `keepInBounds` function.
+    3. Store the result of the `keepInBounds` call back into the array's `BLUE` index location.
 
-Once you've got this function working, replace two of your three `applyFilter` function calls with `applyFilterNoBackground`. Good luck!
+>**HINT:** The code of your function should look like:
+>
+>```
+><blue value> = keepInBounds(<blue value> - 50);
+>```
+
+**CODE:** Create the following function:
+* **Name:** `increaseGreenByBlue`
+* **Parameters:** 1 (name the parameter whatever you want, but expect it to be an array)
+* **Returns:** Nothing
+* **Description:** This function should do the following:
+    1. Add the value stored at the array's `GREEN` index and the value stored at the array's `BLUE` index together. 
+    2. Pass the resulting value from step 1's calculation as an argument to the `keepInBounds` function.
+    3. Store the result of the `keepInBounds` call back into the array's `GREEN` index location.
+
+>**HINT:** The code of your function should look like:
+>
+>```
+><green value> = keepInBounds(<blue value> + <green value>);
+>```
+
+>**TESTING:** Once you have both filters created, apply all three of them by calling `applyFilter` a total of three times, with each filter passed as arguments in turn. This should be done up at the top where you are already calling it with `reddify`.
+
+## TODO 7: Create the `applyFilterNoBackground` Function
+
+* **7a)** Create a new function called `applyFilterNoBackground`. It should be identical to the `applyFilter` function except for one difference: it will not apply the filter to the background color! Yes, **you may copy/paste the `applyFilter` function and use that as a base for this new function.**
+
+* **7b)** At the beginning of the `applyFilterNoBackground` function, store the background color of the image in a variable to be used later. The background color can be gotten by looking at the top left pixel of your image (recall what the index numbers for the top left pixel are).
+
+>**WARNING:** Do not hard code the value of the background color.
+
+* **7c)** Inside of the inner loop of `applyFilterNoBackground`, use a conditional statement to check if the current pixel value is equal to the background pixel value. If it is, then apply the filter.
+
+>**HINT:** There should be five lines of code in `applyFilterNoBackground` before completing **7c.**. Four of those lines of code are involved in applying the filter, so those lines need to be inside of the conditional's code block. The fifth one should not be inside of the code block, as it needs to happen no matter what (**Double hint: which line of code gets you a value that you need for your conditional's comparison?**).
+
+>**TESTING:** Once you've got this function working, replace **TWO** of your three `applyFilter` function calls with `applyFilterNoBackground`. You should see only one filter alter the background color, but all of them will change the main image!
 
 ## Challenge Task: Smudge
 
 As a final challenge, you can try to apply a smudge to your image. A smudge is where you take colors from neighboring pixels and slide them over, making it look like you smudged the image with your finger. You can even customize the smudge with filters to affect how much color (and even which colors!) you smudge over.
 
-If you want to give this challenge a try, here are some hints as to how to proceed:
-
-1. The best way to perform a smudge is to look at a neighbor pixel and copy **some** of its color over to the current pixel being altered. **DON'T** alter both at the same time. How you want to the neighbor to affect the current pixel should be determined by a new filter function.
-2. You will need a different H.O.F. than either `applyFilter` or `applyFilterNoBackground`. This is only because the filter functions for smudging will require multiple arguments. 
-3. The way you iterate over your `image` array will determine which direction you can apply the smudge (e.g. left, right, up, down, or some combination thereof)
-4. Your filter function will need to take in at least two arguments (one for the pixel being altered and one for the neighbor pixel getting smudged over). If you are going to do a diagonal smudge (not recommended), then you will need more than two arguments for all pixels involved in the smudge.
+>If you want to give this challenge a try, here are some hints as to how to proceed:
+>
+>1. The best way to perform a smudge is to look at a neighbor pixel and copy **some** of its color over to the current pixel being altered. **DON'T** alter both at the same time. How you want to the neighbor to affect the current pixel should be determined by a new filter function.
+>2. You will need a different H.O.F. than either `applyFilter` or `applyFilterNoBackground`. This is only because the filter functions for smudging will require multiple arguments. 
+>3. The way you iterate over your `image` array will determine which direction you can apply the smudge (e.g. left, right, up, down, or some combination thereof)
+>4. Your filter function will need to take in at least two arguments (one for the pixel being altered and one for the neighbor pixel getting smudged over). If you are going to do a diagonal smudge (not recommended), then you **may** need more than two arguments for all pixels involved in the smudge, depending on the details of how you wish to do it.
 
 # Submit Your Work
 
 Submit your work regularly. Because these files are already being tracked by your GitHub repo, you can skip the "git add" step. Instead, enter the following commands:
 
-```bash
-git commit -a -m "saving image filtering"
-git push
-```
+>```bash
+>git commit -a -m "saving image filtering"
+>git push
+>```
 
-Congratulations on using using higher order functions!
+Congratulations on using using higher order functions in a practical application!

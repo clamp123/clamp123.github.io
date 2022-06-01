@@ -47,6 +47,9 @@ const bubbleClass = "bubbleElement";
 const quickClass = "quickElement";
 
 
+// create undefined functions so that the program won't crash pre-function creation
+var bubbleSort, quickSort;
+
 /////////////////////////////////////////////////
 ///////////////// Run the setup /////////////////
 /////////////////////////////////////////////////
@@ -54,7 +57,6 @@ const quickClass = "quickElement";
 $(document).ready(function(){
     // resize the containers to fit everything
     let squareHeight = $(bubbleId).width() * (Math.min((1 / MAX_SQUARES * 100), MAX_SQUARE_WIDTH)/100);
-    console.log(squareHeight * 16);
     
     $(bubbleId).height(squareHeight*MAX_SQUARES);
     $(quickId).height(squareHeight*MAX_SQUARES);
@@ -104,6 +106,7 @@ function chooseIndex(startIndex, array){
 function createAndAddElement(list, listId, cssClass, baseId, value){
     let newElement = makeElement(baseId + value, value);
 
+    let offset = list.length / MAX_SQUARES * 100;
     list.push(newElement);
     
     $("<div>").addClass(cssClass)
@@ -112,7 +115,7 @@ function createAndAddElement(list, listId, cssClass, baseId, value){
               .css("height", MAX_SQUARE_HEIGHT + "%")
               .css("width", MAX_SQUARE_HEIGHT * value + "%")
               .css("background-size", 100/value + '% '+ 100 + '%')
-              .css("top", "0%")
+              .css("top", offset + "%")
               .appendTo(listId);
 }
 
