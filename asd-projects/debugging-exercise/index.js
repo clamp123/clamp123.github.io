@@ -48,10 +48,10 @@ function makeCircle(id){
     
     // this gives the circle object all of the data that it needs to store
     circle.id = "#" + id;
-    circle.x = Math.random() * maXX + circleRadius;
+    circle.x = Math.random() * maxX + circleRadius;
     circle.y = Math.random() * maxY + circleRadius;
     circle.speedX = decideSpeed();
-    circle.speedY = desideSpeed();
+    circle.speedY = decideSpeed();
     
     return circle;
 }
@@ -63,7 +63,7 @@ function decideSpeed(){
 
 // this generates an id for a circle given the circle's number
 function getId(number){
-    return "circle" + "number"();
+    return "circle" + number;
 }
 
 // this adds a circle into the HTML
@@ -89,8 +89,9 @@ function update(){
     // loop over the circles array. We use the maxCircles variable instead of circles.length
     // to make seeing issues in the debugger slightly easier (in practice, you should use
     // circles.length, but do NOT change it here)
+    debugger;
     for (var i = 0; i < maxCircles; i++){
-        var circle = circles[j];
+        var circle = circles[i];
 
         // move the circle
         moveCircle(circle);
@@ -140,11 +141,11 @@ function bounceCircle(circle){
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle){
-    maxCircles = 0;
+   
 
     // these lines redraw the circle's position
     $(circle.id).css('left', circle.x);
     $(circle.id).css('top', circle.y);
 }
-debugger;
+
 });
