@@ -9,13 +9,15 @@ body {
   border: 1px solid white;
   background-color: black;
   position: relative;
+  border-radius: 40px;
 }
 
-#gameItem {
+#walker {
   background-color: teal;
   width: 50px;
   height: 50px;
   position: absolute;
+  border-radius: 20px;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
