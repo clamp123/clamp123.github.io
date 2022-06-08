@@ -12,7 +12,12 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-
+  var KEY = {
+    "LEFT": 37,
+    "UP": 38,
+    "RIGHT": 39,
+    "DOWN": 40,
+    }
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -35,7 +40,18 @@ function runProgram(){
   Called in response to events.
   */
   function handleKeyDown(event) {
-
+  if (event.which === KEY.UP) {
+    console.log("UP pressed");
+}
+if (event.which === KEY.UP) {
+  console.log("UP pressed");
+}
+if (event.which === KEY.RIGHT) {
+  console.log("RIGHT pressed");
+}
+if (event.which === KEY.DOWN) {
+  console.log("DOWN pressed");
+}
   }
 
   ////////////////////////////////////////////////////////////////////////////////
