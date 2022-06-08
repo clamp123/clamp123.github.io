@@ -58,13 +58,13 @@ if (event.which === KEY.LEFT) {
   speedX = -5;
 }
 if (event.which === KEY.UP) {
-  speedY = -5;
+  speedY = 5;
 }
 if (event.which === KEY.RIGHT) {
   speedX = 5;
 }
 if (event.which === KEY.DOWN) {
-  speedY = 5;
+  speedY = -5;
 }
   }
   function handleKeyUp(event) {
