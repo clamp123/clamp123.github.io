@@ -94,7 +94,7 @@ if (event.which === KEY.DOWN) {
 
   function redrawGameItem(){
     $("#walker").css("left", positionX);
-    $("#walker").css("up", positionY);
+    $("#walker").css("bottom", positionY);
     
   };
 
