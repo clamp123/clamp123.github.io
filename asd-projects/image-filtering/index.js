@@ -33,7 +33,21 @@ applyFilter(),
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 function applyFilter() {
-  for (image )
+  for (var r = 0; r < image.length; r++) { 
+    var row = image[r];
+
+    for (var c = 0; c < row.length; c++) { 
+      var value = row[c];
+      //todo2 2a below
+      image[r][c]
+//todo2 2a above
+//todo2 2b below
+var rgbNumbers 
+  = rgbStringToArray(rgbString)
+  //todo2 2b above
+  
+
+
 };
 
 // TODO 7: Create the applyFilterNoBackground function
