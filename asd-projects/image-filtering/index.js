@@ -47,7 +47,7 @@ var rgbNumbers
   rgbNumbers[RED] = 255;
   //todo2 2b and 2c above
   //todo2 2d below
-  rgbArrayToString(rgbNumbers);
+  rgbString = rgbArrayToString(rgbNumbers);
   //todo2 2d above
 //todo2 2e below
 image[r][c] = rgbString
