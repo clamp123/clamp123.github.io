@@ -37,9 +37,9 @@ function applyFilter() {
     var row = image[r];
 
     for (var c = 0; c < row.length; c++) { 
-      var value = row[c];
+     
       //todo2 2a below
-      image[r][c]
+      var rgbString = image[r][c]
 //todo2 2a above
 //todo2 2b and 2c below
 var rgbNumbers 
@@ -49,7 +49,9 @@ var rgbNumbers
   //todo2 2d below
   rgbArrayToString(rgbNumbers);
   //todo2 2d above
-
+//todo2 2e below
+image[r][c] = rgbString
+//todo2 2e above
 
 };
 
