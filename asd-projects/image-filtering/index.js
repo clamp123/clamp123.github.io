@@ -41,11 +41,14 @@ function applyFilter() {
       //todo2 2a below
       image[r][c]
 //todo2 2a above
-//todo2 2b below
+//todo2 2b and 2c below
 var rgbNumbers 
   = rgbStringToArray(rgbString)
-  //todo2 2b above
-  
+  rgbNumbers[RED] = 255;
+  //todo2 2b and 2c above
+  //todo2 2d below
+  rgbArrayToString(rgbNumbers);
+  //todo2 2d above
 
 
 };
