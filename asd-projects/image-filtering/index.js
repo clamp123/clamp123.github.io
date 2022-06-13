@@ -63,7 +63,9 @@ image[r][c] = rgbString
 
 
 // TODO 3: Create reddify function
-
+function reddify(totallyArray) {
+totallyArray[RED] = 200;
+};
 
 // TODO 6: Create more filter functions
 
