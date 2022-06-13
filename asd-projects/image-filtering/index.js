@@ -64,8 +64,10 @@ function keepInBounds(number) {
   
 Math.max(number, 255);
 Math.min(number, 0);
-Math.max(Math.min);
-Math.min(Math.max);
+//call math.maxand min below
+Math.max(),
+Math.min(),
+// same as earlier but above
 }
 
 // TODO 3: Create reddify function
