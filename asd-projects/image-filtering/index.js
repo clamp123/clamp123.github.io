@@ -52,7 +52,8 @@ var rgbNumbers
 //todo2 2e below
 image[r][c] = rgbString
 //todo2 2e above
-
+    }
+  }
 };
 
 // TODO 7: Create the applyFilterNoBackground function
