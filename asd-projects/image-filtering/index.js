@@ -63,11 +63,11 @@ image[r][c] = rgbString
 function keepInBounds(number) {
   //(255,0
   //  0, 255)
-Math.max(255, 0);
+Math.max(number, 0);
+
 Math.min(number, 255);
 //call math.maxand min below
-Math.max(),
-Math.min(), //not done//
+ //not done//
 // same as earlier but above
 }
 
