@@ -14,7 +14,11 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-
+async function bubbleSort(array){
+    //todo2 2b current spot
+    IF array[j]'s value < array[j - 1]'s value
+    swap array[j] and array[j - 1]
+};
 
 // TODO 3: Implement quickSort
 
@@ -23,7 +27,9 @@ The CSS ids you will work with are:
 
 
 // TODO 1: Implement swap
+function swap(array, i, j){
 
+};
 
 ///////////////////////////////////////////////////////////////////////
 /////////////////////// YOUR WORK GOES ABOVE HERE /////////////////////
