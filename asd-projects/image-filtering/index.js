@@ -57,7 +57,27 @@ image[r][c] = rgbString
 };
 
 // TODO 7: Create the applyFilterNoBackground function
+//todo7 7a below
+function applyFilterNoBackground(filterFunction) {
+  for (var r = 0; r < image.length; r++) { 
+    var row = image[r];
 
+    for (var c = 0; c < row.length; c++) { 
+//todo7 7c below in progress
+
+  var rgbNumbers 
+  = rgbStringToArray(rgbString)
+  filterFunction(rgbNumbers)
+  rgbString = rgbArrayToString(rgbNumbers);
+  image[r][c] = rgbString
+    }
+  }
+  //todo7 7c above in progress
+  background = image[0][0];
+
+  
+};
+//todo7 7a above
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(number) {
@@ -66,8 +86,11 @@ function keepInBounds(number) {
 Math.max(number, 0);
 
 Math.min(number, 255);
-//call math.maxand min below
- //not done//
+number = Math.max(number, 0);
+number = Math.min(number, 255);
+
+return number;
+ 
 // same as earlier but above
 }
 
@@ -77,6 +100,11 @@ totallyArray[RED] = 200;
 };
 
 // TODO 6: Create more filter functions
-
+function decreaseBlue(bluArray) {
+  bluArray[BLUE] = keepInBounds(bluArray[BLUE] - 50);
+};
+function increaseGreenByBlue(greebArray) {
+  greebArray[GREEN] = keepInBounds(greebArray[BLUE] + greebArray[GREEN]);
+};
 
 // CHALLENGE code goes below here
