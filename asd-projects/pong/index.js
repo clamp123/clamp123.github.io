@@ -41,7 +41,18 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  function pongstuff($id) {
+    var pong = {};
+    pong.id = $id;
+    
+    pong.width = $($id).width();
+    pong.height = $($id).height();
+    pong.x = parseFloat($($id).css('left'));
+  pong.y = parseFloat($($id).css('top'));
+    pong.speedX = (0);
+    pong.speedY = (0);
+  return pong;
+  } 
   
   function endGame() {
     // stop the interval timer
