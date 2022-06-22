@@ -71,6 +71,10 @@ function applyFilterNoBackground(filterFunction) {
       filterFunction(rgbNumbers)
       rgbString = rgbArrayToString(rgbNumbers);
       image[r][c] = rgbString
+      if (rgbString !== background) {
+        
+      }
+
     }
   }
   //todo7 7c above in progress
