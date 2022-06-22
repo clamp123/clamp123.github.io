@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFilter(reddify),
+  applyFilter(reddify);
 
 
     // do not change the below line of code
@@ -66,13 +66,17 @@ function applyFilterNoBackground(filterFunction) {
     for (var c = 0; c < row.length; c++) {
       //todo7 7c below in progress
       var rgbString = image[r][c]
-      var rgbNumbers
-        = rgbStringToArray(rgbString)
-      filterFunction(rgbNumbers)
-      rgbString = rgbArrayToString(rgbNumbers);
-      image[r][c] = rgbString
+      //var rgbNumbers
+      //  = rgbStringToArray(rgbString)
+      //filterFunction(rgbNumbers)
+      //rgbString = rgbArrayToString(rgbNumbers);
+      //image[r][c] = rgbString
       if (rgbString !== background) {
-        
+        var rgbNumbers
+        = rgbStringToArray(rgbString)
+        filterFunction(rgbNumbers)
+        rgbString = rgbArrayToString(rgbNumbers);
+        image[r][c] = rgbString
       }
 
     }
