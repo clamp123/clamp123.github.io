@@ -65,7 +65,7 @@ function applyFilterNoBackground(filterFunction) {
 
     for (var c = 0; c < row.length; c++) {
       //todo7 7c below in progress
-
+      var rgbString = image[r][c]
       var rgbNumbers
         = rgbStringToArray(rgbString)
       filterFunction(rgbNumbers)
@@ -74,7 +74,7 @@ function applyFilterNoBackground(filterFunction) {
     }
   }
   //todo7 7c above in progress
-  background = image[0][0];
+ 
 
 
 };
