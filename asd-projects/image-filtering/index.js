@@ -20,11 +20,11 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-applyFilter(reddify),
-  
+  applyFilter(reddify),
 
-  // do not change the below line of code
-  render($("#display"), image);
+
+    // do not change the below line of code
+    render($("#display"), image);
 }
 
 /////////////////////////////////////////////////////////
@@ -33,25 +33,25 @@ applyFilter(reddify),
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 function applyFilter(filterFunction) {
-  for (var r = 0; r < image.length; r++) { 
+  for (var r = 0; r < image.length; r++) {
     var row = image[r];
 
-    for (var c = 0; c < row.length; c++) { 
-     
+    for (var c = 0; c < row.length; c++) {
+
       //todo2 2a below
       var rgbString = image[r][c]
-//todo2 2a above
-//todo2 2b and 2c 4c replacing 2c below
-var rgbNumbers 
-  = rgbStringToArray(rgbString)
-  filterFunction(rgbNumbers)
-  //todo2 2b and 2c 4c replacing 2c above
-  //todo2 2d below
-  rgbString = rgbArrayToString(rgbNumbers);
-  //todo2 2d above
-//todo2 2e below
-image[r][c] = rgbString
-//todo2 2e above
+      //todo2 2a above
+      //todo2 2b and 2c 4c replacing 2c below
+      var rgbNumbers
+        = rgbStringToArray(rgbString)
+      filterFunction(rgbNumbers)
+      //todo2 2b and 2c 4c replacing 2c above
+      //todo2 2d below
+      rgbString = rgbArrayToString(rgbNumbers);
+      //todo2 2d above
+      //todo2 2e below
+      image[r][c] = rgbString
+      //todo2 2e above
     }
   }
 };
@@ -59,23 +59,24 @@ image[r][c] = rgbString
 // TODO 7: Create the applyFilterNoBackground function
 //todo7 7a below
 function applyFilterNoBackground(filterFunction) {
-  for (var r = 0; r < image.length; r++) { 
+  background = image[0][0];
+  for (var r = 0; r < image.length; r++) {
     var row = image[r];
 
-    for (var c = 0; c < row.length; c++) { 
-//todo7 7c below in progress
+    for (var c = 0; c < row.length; c++) {
+      //todo7 7c below in progress
 
-  var rgbNumbers 
-  = rgbStringToArray(rgbString)
-  filterFunction(rgbNumbers)
-  rgbString = rgbArrayToString(rgbNumbers);
-  image[r][c] = rgbString
+      var rgbNumbers
+        = rgbStringToArray(rgbString)
+      filterFunction(rgbNumbers)
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[r][c] = rgbString
     }
   }
   //todo7 7c above in progress
   background = image[0][0];
 
-  
+
 };
 //todo7 7a above
 
@@ -83,20 +84,20 @@ function applyFilterNoBackground(filterFunction) {
 function keepInBounds(number) {
   //(255,0
   //  0, 255)
-Math.max(number, 0);
+  Math.max(number, 0);
 
-Math.min(number, 255);
-number = Math.max(number, 0);
-number = Math.min(number, 255);
+  Math.min(number, 255);
+  number = Math.max(number, 0);
+  number = Math.min(number, 255);
 
-return number;
- 
-// same as earlier but above
+  return number;
+
+  // same as earlier but above
 }
 
 // TODO 3: Create reddify function
 function reddify(totallyArray) {
-totallyArray[RED] = 200;
+  totallyArray[RED] = 200;
 };
 
 // TODO 6: Create more filter functions
