@@ -1,10 +1,10 @@
 Describe the gameplay two paddles try to get a ball past eachother
 What are the conditions when the game begins? paddlles have to move ball has to move and bounce off the paddle when it touches it
-Does the game have an end? If so, what are the conditions for when it ends? yes and no there is no techcincal end but when ball goes to the other side of the paddle as in behind it rests
+Does the game have an end? If so, what are the conditions for when it ends? after it scorse a certain number of goals it will launch a display saying which ever player wins
 What ifs will there be? if ball touches paddle -speed if ball get past rest if ball touches roof or floor -speed
 What are the visual game components? the paddle and ball like walker and bouncing box
 Which will be static? (the board)
 Which will be animated? (the paddle and ball)
-What data will you need to manage each game component? the data will have to largly mirror walker and bouncing box
+What data will you need to manage each game component? the data will have to largly mirror walker and bouncing box one speed x three speed y 5 objects 4 borders 
 What events will occur in this game? keyboardevents
 How do those events affect the data of the program? when i press something like w or arrow up it moves up when i press s or arrow down it goes down
