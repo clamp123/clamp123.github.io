@@ -21,7 +21,15 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  var ball = {};
+  ball.speedX = 5;
+  ball.speedY = 5;
+  var rightpaddle = {};
+  rightpaddle.speedX = 0;
+  rightpaddle.speedY = 5;
+  var leftpaddle = {};
+  leftpaddle.speedX = 0;
+  leftpaddle.speedY = 5;
   /* 
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
