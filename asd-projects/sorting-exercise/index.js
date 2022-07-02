@@ -33,7 +33,9 @@ async function bubbleSort(array){
 };
 
 // TODO 3: Implement quickSort
-
+async function quickSort(array, left, right){
+    
+}
 
 // TODOs 4 & 5: Implement partition
 
